@@ -1,6 +1,6 @@
 # Stylo
 
-Webshop project with CMS and MACH architecture. Built using React and Express. 🚀
+Webshop project with CMS and MACH architecture. Built using React and Express and Android. 🚀
 
 ![logo](https://github.com/CroAnna/Stylo/assets/90924342/0c978658-8e20-4f57-8151-a0a955515b01)
 
@@ -9,9 +9,12 @@ This was a team project and created by 5 students (including myself) and reviewe
 
 <p align="center">
 
-<p>Watch the video: 👇</p>
+<p>Watch this videos: 👇</p>
 
 [<img src="https://img.youtube.com/vi/VIzjsMCsqaA/hqdefault.jpg"/>](https://youtu.be/VIzjsMCsqaA?si=7Xju6KpGcK5kkK07)
+
+[<img src="https://img.youtube.com/vi/Q1oDcStelPk/hqdefault.jpg"/>](https://www.youtube.com/watch?v=Q1oDcStelPk)
+
 
 </p>
 
@@ -33,11 +36,12 @@ This was a team project and created by 5 students (including myself) and reviewe
 
 | Role | Github username  |  
 |---|---|
+| Android, DevOps | @Filip1402   | 
 | Frontend, UI design | @CroAnna  |   
 | Frontend, UI design | @Fr1k1 |  
 | Backend |  @jbudak20-foi  | 
 | Backend |  @Robert4361 | 
-| DevOps | @Filip1402   | 
+
 
 <div id="description"></div>
 
@@ -59,6 +63,7 @@ In terms of architecture, it must consist of microservices (resulting in a relat
 ## Technologies
 
 ### Frontend 🎭
+- **Android/Kotlin** - Resposible for developing android native app
 - **React** - A  JavaScript library for building user interfaces
 - **react-loader-spinner** - A lightweight spinner component for React applications
 - **react-responsive-carousel** - A responsive carousel component for React applications
@@ -109,9 +114,10 @@ The "H" stands for "Headless".  Iteans decoupling the backend (microservices) fr
 
 ## Architecture and microservices
 
-Application is composed of 2 parts:
+Application is composed of 3 parts:
 <ul>
   <li> Web app frontend: the main UI of the app</li>
+   <li> Native android app: MVP version of web app that has modular login and registration that was required by FOI</li>
    <li> Backend: which contains 4 microservices</li>
 </ul>
 
@@ -128,6 +134,8 @@ Overall structure of the entire Stylo application:
 
 ![structure](https://github.com/CroAnna/Stylo/assets/90924342/379689d5-070c-41a6-bbcf-53a7bab82ac9)
 
+Overall structure of the Android Stylo application:
+![23caf954-38fe-44d2-ae7c-b85e95340691](https://github.com/Filip1402/Stylo/assets/55147770/70aa7bd9-6b64-4d70-a93d-89c5efd660ea)
 
 Frontend component diagram:
 
@@ -148,3 +156,20 @@ Designed in Figma.
 View full <a href="https://www.figma.com/file/7BeMYsf9fGjBY9wMeaMKJD/AiR-projekt?type=design&node-id=0%3A1&mode=dev&t=3ZqX6vvANEHxYYxp-1">Figma file</a> here. Icons are from <a href="https://www.flaticon.com/">Flaticon</a> and <a href="https://phosphoricons.com/">Phosphor Icons</a>.
 
 ![slika](https://github.com/CroAnna/Stylo/assets/90924342/9197eb27-1a58-45f0-99ab-ba69a19ea04d)
+
+**Android UI resembels Scalable web app UI
+
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/3e81eb6f-4374-46b1-8c56-78e660ec6120" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/1dcfa415-259b-44da-b63c-e5f37d44e305" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/66d5aa59-3a66-4f92-b874-f4ab280208dc" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/60a60439-0b2d-4440-9164-f57c6e0b0ab8" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/889bc6c6-d360-410f-b5db-3b4f9631a135" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/54e6a854-c384-4b21-a27c-b0074b209e22" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/8699c7e0-359a-43d7-865d-c699323a407c" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/7ec82597-93c0-4ee9-bf02-0799b4ca6278" width="200">
+<img src="https://github.com/Filip1402/Stylo/assets/55147770/52bc8ba6-1e0b-4081-86f7-965028ed6df8" width="200">
+
+
+
+
+
