@@ -1,0 +1,83 @@
+version: '3'
+services:
+
+  react-app:
+    hostname: react-app
+    build:
+      context: ./stylo-frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    networks:
+      - kong-net
+    depends_on:
+      - products_api
+      - receipts_api
+      - emails_api
+
+  products_api:
+    hostname: products_api
+    build:
+      context: ./stylo-products-backend/
+      dockerfile: Dockerfile
+    networks:
+      - kong-net
+
+  receipts_api:
+    hostname: receipts_api
+    build:
+      context: ./stylo-receipts-backend/
+      dockerfile: Dockerfile
+    networks:
+      - kong-net
+    depends_on:
+      - customers_api  
+
+  emails_api:
+    hostname: emails_api
+    build:
+      context: ./stylo-emails-backend/
+      dockerfile: Dockerfile
+    networks:
+      - kong-net
+    depends_on:
+      - receipts_api
+
+  customers_api:
+    hostname: customers
+    build:
+      context: ./stylo-customers-backend/
+      dockerfile: Dockerfile
+    networks:
+      - kong-net
+  
+  kong:
+    image: kong:latest
+    hostname: kong
+    container_name: kong
+    networks:
+      - kong-net
+    environment:
+      KONG_DATABASE: 'off'
+      KONG_PROXY_ACCESS_LOG: '/dev/stdout'
+      KONG_ADMIN_ACCESS_LOG: '/dev/stdout'
+      KONG_PROXY_ERROR_LOG: '/dev/stderr'
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+      KONG_DECLARATIVE_CONFIG: "/opt/kong/kong.yaml"
+    command: "kong start"
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+    volumes:
+      - ./config:/opt/kong
+    depends_on:
+      - products_api
+      - receipts_api
+      - emails_api
+      - customers_api
+      - react-app
+
+networks:
+  kong-net:

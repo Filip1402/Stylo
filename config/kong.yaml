@@ -1,0 +1,115 @@
+_format_version: "2.1"
+
+services:
+  - name: customers-api
+    url: http://customers:3004
+    routes:
+      - name: customers-default
+        paths:
+          - /
+        strip_path: false
+
+      - name: jwt
+        paths:
+          - /getJWT
+        strip_path: false
+
+      - name: customers-email
+        paths:
+          - /customers/
+        strip_path: false
+        plugins:
+          - name: jwt
+            enabled: false
+            config:
+              key_claim_name: kid
+              claims_to_verify:
+                - exp
+
+      - name: customers-login
+        paths:
+          - /customers/login
+        strip_path: false
+
+      - name: token
+        paths:
+          - /customers/token
+        strip_path: false
+
+      - name: signup
+        paths:
+          - /customers/signup
+        strip_path: false
+
+      - name: activation
+        paths:
+          - /customers/activate
+        strip_path: false
+
+  - name: products-api
+    url: http://products_api:3001
+    routes:
+      - name: products
+        paths:
+          - /products/
+        strip_path: false
+
+      - name: list
+        paths:
+          - /products/list
+        strip_path: false
+
+      - name: filter
+        paths:
+          - /product/filter
+        strip_path: false
+
+      - name: categories
+        paths:
+          - /categories/
+        strip_path: false
+
+      - name: homepage
+        paths:
+          - /homepage
+        strip_path: false
+
+      - name: layout
+        paths:
+          - /layout
+        strip_path: false
+
+  - name: receipts_api
+    url: http://receipts_api:3002
+    routes:
+      - name: receipt-default
+        paths:
+          - /receipt
+        strip_path: false
+        plugins:
+          - name: jwt
+            enabled: true
+            config:
+              key_claim_name: kid
+              claims_to_verify:
+                - exp
+      - name: payments-mobile
+        paths:
+          - /payments/mobile/create
+        strip_path: false
+      - name: payments-web
+        paths:
+          - /payments/web/create
+        strip_path: false
+      - name: orders-create
+        paths:
+          - /orders
+        strip_path: false
+
+consumers:
+  - username: loginserverissuer
+
+jwt_secrets:
+  - consumer: loginserverissuer
+    key: "xsiDJnFXp6mVNwZ3y36P19V7MdzrV1ns"
+    secret: "e82fab4a7c237617ef14448890fe1007ae17d277cb31afba44f087071d272a1714e9b8403110923b1b55031c0fabf06baea729e3517b1c30afbe4edb658db93c"
